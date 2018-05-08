@@ -3,7 +3,6 @@ package com.demo.service;
 import com.demo.mapper.UserInfoMapper;
 import com.demo.mapper.UserMapper;
 import com.demo.pojo.User;
-import com.demo.pojo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

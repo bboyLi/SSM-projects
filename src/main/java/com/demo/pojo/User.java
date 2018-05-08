@@ -6,9 +6,8 @@ public class User {
     private String username;
 
     private String password;
-
     /**
-     * 1.系统管理员。2.服务员。3移动用户。4普通用户
+     * 1.客户，2.操作员
      */
     private String role;
 
