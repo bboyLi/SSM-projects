@@ -25,10 +25,10 @@
         <property name="maxUploadSize" value="5242880"></property>
     </bean>
 
-    <mvc:resources location="/assets/" mapping="/assets/**"/>
+    <!--<mvc:resources location="/assets/" mapping="/assets/**"/>
     <mvc:resources location="/img/" mapping="/img/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
-    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/css/" mapping="/css/**"/>-->
 
     <!--<mvc:interceptors>
         <mvc:interceptor>
