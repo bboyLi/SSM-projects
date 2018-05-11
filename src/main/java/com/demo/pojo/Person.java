@@ -11,19 +11,22 @@ public class Person {
 
     private String name;
 
-    private int age;
+    private Integer age;
 
     private String city;
+
+    private String phone;
 
     private String desc;
 
     public Person() {
     }
 
-    public Person(String name, int age, String city, String desc) {
+    public Person(String name, Integer age, String city, String phone, String desc) {
         this.name = name;
         this.age = age;
         this.city = city;
+        this.phone = phone;
         this.desc = desc;
     }
 
@@ -35,11 +38,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -59,12 +62,21 @@ public class Person {
         this.desc = desc;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", city='" + city + '\'' +
+                ", phone='" + phone + '\'' +
                 ", desc='" + desc + '\'' +
                 '}';
     }
