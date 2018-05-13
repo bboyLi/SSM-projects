@@ -79,4 +79,15 @@
       price = #{price,jdbcType=DECIMAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="list" resultMap="BaseResultMap">
+    SELECT * FROM material
+  </select>
+
+  <update id="sub">
+    UPDATE material
+    SET num = num - #{num}
+    WHERE id = #{id}
+  </update>
+
 </mapper>

@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>移动用户服务系统</title>
+		<title>餐厅运营管理系统</title>
 
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,8 +52,8 @@
 							<div class="center">
 								<h1>
 									<i class="icon-leaf green"></i>
-									<span class="red">移动</span>
-									<span class="white">用户服务系统</span>
+									<span class="red">餐厅</span>
+									<span class="white">运营管理系统</span>
 								</h1>
 								<h4 class="blue">&copy; Company Name</h4>
 							</div>
@@ -93,13 +93,9 @@
 													<div class="clearfix">
 														<label class="inline">
 															<input type="radio" class="ace role" name="role" value="1"/>
-															<span class="lbl">admin</span>
+															<span class="lbl">客户</span>
 															<input type="radio" class="ace role" name="role" value="2"/>
-															<span class="lbl">客服</span>
-															<input type="radio" class="ace role" name="role" value="3"/>
-															<span class="lbl">移动用户</span>
-															<input type="radio" class="ace role" name="role" value="4"/>
-															<span class="lbl">普通用户</span>
+															<span class="lbl">管理员</span>
 														</label>
 
 														<button type="button" class="login width-35 pull-right btn btn-sm btn-primary">
@@ -214,14 +210,7 @@
 
 													<label class="block">
 														<input type="radio" class="ace role r-role" name="role" value="1"/>
-														<span class="lbl">admin</span>
-														<input type="radio" class="ace role r-role" name="role" value="2"/>
-														<span class="lbl">客服</span>
-														<input type="radio" class="ace role r-role" name="role" value="3"/>
-														<span class="lbl">移动用户</span>
-														<input type="radio" class="ace role r-role" name="role" value="4"/>
-														<span class="lbl">普通用户</span>
-
+														<span class="lbl">客户</span>
 													</label>
 
 													<div class="space-24"></div>

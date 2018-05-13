@@ -36,14 +36,11 @@ public class UserController {
         User login = userService.login(user);
         if(login!=null){
             session.setAttribute("user",login);
-            if(user.getRole().equals("1")){     //1.系统管理员
-                return "forward:/user_listUser";
+            if(user.getRole().equals("2")){     //1.系统管理员
+                return "forward:/admin_dishes_list";
             }
-            if(user.getRole().equals("2")){     //2.服务员
-                return "forward:/fuwu_user_list";
-            }
-            if(user.getRole().equals("3")){     //3移动用户             4普通用户
-                return "forward:/yidong_business_list";
+            if(user.getRole().equals("1")){     //2.服务员
+                return "forward:/fuwu_dishes_list";
             }
             else{
                 return "login";

@@ -125,4 +125,13 @@
       mnum = #{mnum,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="list" resultMap="BaseResultMap">
+    SELECT * FROM dishes
+  </select>
+
+  <select id="listTuijian" resultMap="BaseResultMap">
+    SELECT * FROM dishes ORDER BY num DESC limit 10
+  </select>
+
 </mapper>
