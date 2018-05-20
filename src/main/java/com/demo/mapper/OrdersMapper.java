@@ -18,8 +18,5 @@ public interface OrdersMapper {
 
     int updateByPrimaryKey(Orders record);
 
-    //根据用户id查询订单列表
-    List<Orders> selectByUserId(@Param("userId") Integer userId);
-
-    List<Orders> list();
+    List<Orders> listByUserId(@Param("userId") Integer userId);
 }

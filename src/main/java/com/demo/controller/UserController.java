@@ -36,11 +36,11 @@ public class UserController {
         User login = userService.login(user);
         if(login!=null){
             session.setAttribute("user",login);
-            if(user.getRole().equals("2")){     //1.系统管理员
-                return "forward:/admin_dishes_list";
+            if(user.getRole().equals("1")){     //1.客户
+                return "forward:/kehu_book_list";
             }
-            if(user.getRole().equals("1")){     //2.服务员
-                return "forward:/fuwu_dishes_list";
+            if(user.getRole().equals("2")){     //2.系统管理员
+                return "forward:/user_listUser";
             }
             else{
                 return "login";

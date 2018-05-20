@@ -3,12 +3,12 @@
 <mapper namespace="com.demo.mapper.OrdersMapper" >
   <resultMap id="BaseResultMap" type="com.demo.pojo.Orders" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
     <result column="userid" property="userid" jdbcType="INTEGER" />
-    <result column="dishid" property="dishid" jdbcType="INTEGER" />
     <result column="ctime" property="ctime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, userid, dishid, ctime
+    id, bid, userid, ctime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -21,9 +21,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.demo.pojo.Orders" >
-    insert into orders (id, userid, dishid, 
+    insert into orders (id, bid, userid, 
       ctime)
-    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{dishid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
       #{ctime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.demo.pojo.Orders" >
@@ -32,11 +32,11 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="bid != null" >
+        bid,
+      </if>
       <if test="userid != null" >
         userid,
-      </if>
-      <if test="dishid != null" >
-        dishid,
       </if>
       <if test="ctime != null" >
         ctime,
@@ -46,11 +46,11 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
       <if test="userid != null" >
         #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="dishid != null" >
-        #{dishid,jdbcType=INTEGER},
       </if>
       <if test="ctime != null" >
         #{ctime,jdbcType=TIMESTAMP},
@@ -60,11 +60,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.pojo.Orders" >
     update orders
     <set >
+      <if test="bid != null" >
+        bid = #{bid,jdbcType=INTEGER},
+      </if>
       <if test="userid != null" >
         userid = #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="dishid != null" >
-        dishid = #{dishid,jdbcType=INTEGER},
       </if>
       <if test="ctime != null" >
         ctime = #{ctime,jdbcType=TIMESTAMP},
@@ -74,17 +74,14 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.demo.pojo.Orders" >
     update orders
-    set userid = #{userid,jdbcType=INTEGER},
-      dishid = #{dishid,jdbcType=INTEGER},
+    set bid = #{bid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER},
       ctime = #{ctime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByUserId" resultMap="BaseResultMap">
-    SELECT * FROM orders WHERE userid=#{userId}
-  </select>
 
-  <select id="list" resultMap="BaseResultMap">
-    SELECT * FROM orders
+  <select id="listByUserId" resultMap="BaseResultMap">
+    SELECT * FROM orders WHERE userid=#{userId}
   </select>
 
 </mapper>

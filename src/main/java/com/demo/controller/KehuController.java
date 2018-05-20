@@ -1,10 +1,9 @@
 package com.demo.controller;
 
-import com.demo.dto.DishesDTO;
-import com.demo.pojo.Dishes;
+import com.demo.pojo.Book;
 import com.demo.pojo.User;
-import com.demo.service.DishesService;
-import com.demo.service.OrdersService;
+import com.demo.service.BookService;
+import com.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,50 +17,39 @@ import java.util.Map;
  *
  * @author lichenxin@xinzhentech.com
  * @version 1.0
- * @since 2018/5/11 22:42
+ * @since 2018/5/14 23:13
  */
 @Controller
 public class KehuController {
 
     @Autowired
-    private DishesService dishesService;
+    private BookService bookService;
     @Autowired
-    private OrdersService OrdersService;
+    private OrderService orderService;
 
-    //菜单列表
-    @RequestMapping("fuwu_dishes_list")
-    public String list(Map map){
-        List<DishesDTO> list = dishesService.list();
-        map.put("list",list);
-        return "fuwu_dishes_list";
+    //图书列表
+    @RequestMapping("/kehu_book_list")
+    public String listBook(Map map){
+        List<Book> books = bookService.listBook();
+        map.put("list",books);
+        return "kehu_book_list";
     }
 
-    //推荐菜单列表  前10个
-    @RequestMapping("fuwu_dishes_tuijian")
-    public String tuijian(Map map){
-        List<DishesDTO> list = dishesService.listTuijian();
-        map.put("list",list);
-        //return "fuwu_dishes_tuijian";
-        return "fuwu_dishes_list";
-    }
-
-    //点菜
-    @RequestMapping("fuwu_dishes_add")
-    public String addDishes(int id, HttpSession session){
+    //购买图书
+    @RequestMapping("/kehu_book_add")
+    public String addBook(int id, HttpSession session){
         User user = (User) session.getAttribute("user");
-        OrdersService.addDishes(id,user.getId());
-        return "forward:/fuwu_dishes_list";
-    }
+        orderService.buyBook(id,user.getId());
+        return "forward:/kehu_book_list";
 
-    //已点菜单列表
-    @RequestMapping("fuwu_orders_list")
-    public String yidianList(HttpSession session,Map map){
+    }
+    //我购买的图书
+    @RequestMapping("/kehu_orders_list")
+    public String orders(Map map,HttpSession session){
         User user = (User) session.getAttribute("user");
-        List<DishesDTO> list = dishesService.getYidianDishes(user.getId());
-        map.put("list",list);
-        return "fuwu_orders_list";
+        List<Book> books = orderService.listBookByUserId(user.getId());
+        map.put("list",books);
+        return "kehu_orders_list";
     }
-
-
 
 }

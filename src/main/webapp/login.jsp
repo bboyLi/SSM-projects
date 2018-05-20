@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>餐厅运营管理系统</title>
+		<title>图书交易系统</title>
 
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,8 +52,8 @@
 							<div class="center">
 								<h1>
 									<i class="icon-leaf green"></i>
-									<span class="red">餐厅</span>
-									<span class="white">运营管理系统</span>
+									<span class="red">图书</span>
+									<span class="white">交易系统</span>
 								</h1>
 								<h4 class="blue">&copy; Company Name</h4>
 							</div>
